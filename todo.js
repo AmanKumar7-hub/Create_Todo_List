@@ -1,4 +1,4 @@
-//creating a close delete button for an item from the list
+//close delete button for an item from the list
 var myNodeList = document.getElementsByTagName("li");
 var i;
 //loop for each item in list
@@ -36,4 +36,26 @@ function newElement(){
       div.style.display = "none";
     }
   }
+}
+//functionality for checkd item in list when click on the item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev){
+  if(ev.target.tagName === 'LI'){
+    ev.target.classList.toggle('checked');
+  }
+},false)
+
+// function for close button to hide the current list item
+var close  = document.getElementsByClassName("close");
+for(i=0;i<close.length;i++){
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.display="none";
+  }
+}
+
+//Function for remove entire list item
+function removeAll(){
+  var lst = document.getElementsByTagName("ul");
+  lst[0].innerHTML= '';
 }
